@@ -1,6 +1,7 @@
 package com.pawlukowicz.empik.user.model;
 
 import lombok.*;
+import javax.validation.constraints.Min;
 
 import javax.persistence.*;
 
@@ -15,7 +16,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private @NonNull String login;
-    private int requestCount = 1;
+    private @Min(0) int requestCount = 1;
 
     public void incrementRequestCount() {
         requestCount++;
