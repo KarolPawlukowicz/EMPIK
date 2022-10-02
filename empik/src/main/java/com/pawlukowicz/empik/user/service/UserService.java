@@ -5,9 +5,8 @@ import com.pawlukowicz.empik.user.dto.GithubUserResponseDTO;
 import com.pawlukowicz.empik.user.dto.UserDTO;
 import com.pawlukowicz.empik.user.model.User;
 import com.pawlukowicz.empik.user.repository.UserRepository;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -15,15 +14,14 @@ import org.springframework.web.client.RestTemplate;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class UserService {
 
     private static final double CALCULATIONS_NUMERATOR = 6;
     private static final int INCREASE_REPOS_NUMBER_BY_2 = 2;
 
-    private final @NonNull RestTemplate restTemplate;
-    private final @NonNull GithubApiConfig githubApiConfig;
-    private final @NonNull UserRepository userRepository;
+    @Autowired private RestTemplate restTemplate;
+    @Autowired private GithubApiConfig githubApiConfig;
+    @Autowired private UserRepository userRepository;
 
     public UserDTO getUserByLogin(String login) {
         log.info("Getting user '{}' from github API", login);
@@ -61,5 +59,4 @@ public class UserService {
             userRepository.save(new User(login));
         }
     }
-
 }
