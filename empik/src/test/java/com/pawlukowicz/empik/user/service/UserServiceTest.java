@@ -28,8 +28,8 @@ class UserServiceTest {
     @InjectMocks private UserService userServiceUnderTest;
 
     @Test
-    @DisplayName("Should return correct calculations")
-    void getUserByLoginCorrectCalculations() {
+    @DisplayName("Should return correct Users calculations")
+    void shouldReturnCorrectUsersCalculations() {
         // Given
         String login = "KarolPawlukowicz";
 
@@ -66,8 +66,8 @@ class UserServiceTest {
     }
 
     @Test
-    @DisplayName("Should return incorrect calculations")
-    void getUserByLoginCorrectIncalculations() {
+    @DisplayName("Should return incorrect Users calculations")
+    void shouldReturnIncorrectUsersCalculations() {
         // Given
         String login = "KarolPawlukowicz";
 

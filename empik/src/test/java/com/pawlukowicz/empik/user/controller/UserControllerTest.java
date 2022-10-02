@@ -20,7 +20,7 @@ class UserControllerTest {
 
     @Test
     @DisplayName("Should return correct value")
-    void getUserByCorrectLogin() throws Exception {
+    void shouldReturnCorrectValue() throws Exception {
         // Given
         String login = "KarolPawlukowicz";
 
@@ -52,7 +52,7 @@ class UserControllerTest {
 
     @Test
     @DisplayName("Should throw an exception")
-    void getUserByIncorrectLogin() throws Exception {
+    void shouldThrowAnException() throws Exception {
         // Given
         String login = "KarolPawlukowicz321432";
 
